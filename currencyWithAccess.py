@@ -8,15 +8,11 @@ if  os.path.isfile('token.txt') :
 elif 'CURRENCYTOKEN' in os.environ :
     print('Leyendo variables de entorno')
     token = os.environ["CURRENCYTOKEN"]
-
 else:
     print('El archivo no existe')
     raise IOError
 
 url = "http://data.fixer.io/api/latest?access_key=" + token
-
-print url
-
 
 response = requests.get(url)
 data = response.text
